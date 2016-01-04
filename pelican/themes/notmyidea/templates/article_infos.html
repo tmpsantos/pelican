@@ -17,6 +17,14 @@
         </address>
         {% endif %}
 <p>In <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>.</p>
+
+{% if article.prev_article %}
+<p>Next <a href="{{ SITEURL }}/{{ article.prev_article.url }}">{{ article.prev_article.title }}</a></p>
+{% endif %}
+{% if article.next_article %}
+<p>Previous <a href="{{ SITEURL }}/{{ article.next_article.url }}">{{ article.next_article.title }}</a></p>
+{% endif %}
+
 {% include 'taglist.html' %}
 {% import 'translations.html' as translations with context %}
 {{ translations.translations_for(article) }}
